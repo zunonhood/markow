@@ -52,6 +52,7 @@
   .vtag{font-family:"Courier New",monospace;font-size:.8em;color:#8a2f14;margin-bottom:8px}
   .vt{display:flex;justify-content:space-between;border-bottom:1px dotted #e4dccb;padding:3px 0;font-size:.9em}
   .vt span{color:#6b6459;font-family:"Courier New",monospace;font-size:.85em}
+  .codeblock{background:#f3efe6;border:1px solid #ded5c4;padding:14px 16px;overflow-x:auto;font-family:"Courier New",monospace;font-size:.82em;line-height:1.5;color:#1d1b17;margin:1em 0;white-space:pre}
   blockquote{margin:1.1em 0;padding:.15em 0 .15em 1.05em;border-left:3px solid #ded5c4;color:#3a352d;font-style:italic}
   table{border-collapse:collapse;max-width:100%;margin:.9em 0;font-size:.94em}
   th,td{border:1px solid #ded5c4;padding:6px 10px;text-align:left;vertical-align:top}
@@ -97,7 +98,7 @@
   <div class="subnum">lives, each one able to die.</div>
   <p class="links">
     <a href="https://x.com/tamayurachain" target="_blank" rel="noopener">twitter / x</a> ·
-    <a href="https://github.com/tamayurago/tamayura" target="_blank" rel="noopener">github</a> ·
+    <a href="#code">core code</a> ·
     <span class="ca" id="ca" title="contract address" data-ca="">CA: soon</span>
   </p>
 </header>
@@ -111,6 +112,7 @@
   <a href="#rule"><span class="n">04</span>the one rule</a><br>
   <a href="#layers"><span class="n">05</span>three layers</a><br>
   <a href="#howmade"><span class="n">06</span>how i'm computed</a><br>
+  <a href="#code"><span class="n">··</span>the core code</a><br>
   <a href="#rarity"><span class="n">07</span>the rare ones</a><br>
   <a href="#flagship"><span class="n">08</span>the flagship</a><br>
   <a href="#village"><span class="n">09</span>the village</a><br>
@@ -289,10 +291,57 @@
     </div>
   </div>
   <p class="muted"><small>same function the <a href="#token">contract</a>-side tooling and the
-  <a href="https://github.com/tamayurago/tamayura">open-source engine</a> use — verifiable,
+  <a href="#code">core engine below</a> use — verifiable,
   forgeable by no one. try <a href="#" data-id="1">#1</a>, <a href="#" data-id="777">#777</a>,
   <a href="#" data-id="12321">#12321</a>, <a href="#" data-id="1000000000">#1000000000</a>.</small></p>
 
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= CORE CODE ============================= -->
+<section id="code">
+  <div class="sec">·· the core code</div>
+  <h2>the whole of me, in one function</h2>
+  <p>no server decides what i look like. no database stores it. i <em>am</em> this
+  function — hand it my number and it hands you me, byte for byte, on any machine.
+  this is the readable heart of the engine; read it, run it, verify me:</p>
+  <pre class="codeblock">// tamayura — appearance = f(id)
+// same number -> same life. forever. no storage, no forgery.
+
+const SUPPLY = 1_000_000_000;            // a billion lives
+
+// a deterministic PRNG, seeded by the token id
+function rng(id) {
+  let a = (id * 2654435761) >>> 0;
+  return () => {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+// one number -> one unique, mortal creature
+function generate(id) {
+  const r = rng(id);
+  const species = SPECIES [ r() * SPECIES.length  | 0 ];
+  const palette = PALETTES[ r() * PALETTES.length | 0 ];
+  const eyes    = EYES    [ r() * EYES.length     | 0 ];
+  const roll    = r();
+
+  const rarity =
+      isLegendary(id) ? 'MYTHIC'     // #1, #777, #1000000000, palindromes
+    : roll > 0.9995   ? 'LEGENDARY'  // golden body, near-eternal life
+    : roll > 0.985    ? 'RARE'
+    : roll > 0.925    ? 'UNCOMMON'
+    :                   'COMMON';
+
+  return { id, species, palette, eyes, rarity };
+}</pre>
+  <p class="muted"><small>this is the same logic the <a href="#demo">viewer above</a>
+  runs live in your browser — type any number and you get exactly what everyone else
+  gets for that number. that is the whole promise: a life you can recompute, and no one
+  can fake.</small></p>
   <div class="earn">everything under this line is just me earning it.</div>
 </section>
 
@@ -640,7 +689,7 @@
 <footer>
   <p class="links">
     <a href="https://x.com/tamayurachain" target="_blank" rel="noopener">twitter / x</a> ·
-    <a href="https://github.com/tamayurago/tamayura" target="_blank" rel="noopener">github</a>
+    <a href="#code">core code</a>
   </p>
   <p class="muted"><small>tamayura · 玉響 — a billion ephemeral lives on solana.<br>
   hatch. bond. fade. every line is earned.<br>
