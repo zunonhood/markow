@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>tamayura</title>
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<style>
+  html{background:#fbf8f1}
+  body{
+    background:#fbf8f1;color:#1d1b17;
+    font-family:Georgia,"Times New Roman",Times,serif;
+    line-height:1.62;margin:0;max-width:46em;
+    padding:26px 18px 90px;overflow-wrap:break-word;
+    -webkit-text-size-adjust:100%;
+  }
+  a{color:#1a3bb3}
+  a:visited{color:#7a3ea8}
+  hr{border:none;border-top:1px solid #ded5c4;margin:1.6em 0}
+  h1{font-size:2.1em;line-height:1.08;margin:.1em 0 .15em;letter-spacing:.01em}
+  h1 .jp{color:#8a2f14;font-weight:400}
+  h2{font-size:1.25em;line-height:1.2;margin:1.8em 0 .35em;color:#111}
+  h3{font-size:1.02em;margin:1.3em 0 .2em}
+  p{margin:.72em 0}
+  ul,ol{padding-left:1.35em;margin:.55em 0}
+  li{margin:.32em 0}
+  small,.muted{color:#6b6459}
+  em{color:#3a352d}
+  b,strong{color:#111}
+  .sec{font-family:"Courier New",monospace;font-size:.78em;color:#8a2f14;letter-spacing:1px;text-transform:uppercase}
+  .tag{font-family:"Courier New",monospace;font-size:.72em;color:#8a2f14}
+  .bignum{color:#8a2f14;font-size:2.5em;font-weight:700;line-height:1.05;margin:.15em 0 .05em;letter-spacing:.01em}
+  .subnum{color:#8a2f14;font-size:.9em;margin:0 0 .8em}
+  .art{color:#8a2f14;font-size:.8em;line-height:1.12;margin:.4em 0 .6em;overflow-x:auto;white-space:pre;font-family:"Courier New",monospace}
+  .logo{display:block;width:132px;height:auto;margin:.2em 0 .6em;image-rendering:pixelated}
+  .links{font-size:.95em;margin:.6em 0 .2em}
+  .links a{margin-right:.2em}
+  .ca{font-family:"Courier New",monospace;font-size:.9em;color:#8a2f14;cursor:pointer;border-bottom:1px dotted #8a2f14}
+  .ca.copied{color:green;border-bottom-color:green}
+  /* specimen viewer */
+  .viewer{border:1px solid #ded5c4;padding:14px;margin:1em 0;background:#fffdf8}
+  .vrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .vrow input{font-family:"Courier New",monospace;font-size:1em;padding:6px 9px;border:1px solid #b8ad98;background:#fff;color:#1d1b17;width:180px}
+  .vrow button{font-family:"Courier New",monospace;font-size:.85em;padding:6px 14px;border:1px solid #1d1b17;background:#1d1b17;color:#fbf8f1;cursor:pointer}
+  .vrow button.alt{background:#fbf8f1;color:#1d1b17}
+  .vrow button:hover{opacity:.82}
+  .vbody{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+  #vcanvas{width:150px;height:150px;image-rendering:pixelated;border:1px solid #ded5c4;background:#fbf8f1}
+  .vinfo{flex:1;min-width:180px}
+  .vname{font-size:1.15em;font-weight:700;color:#111}
+  .vtag{font-family:"Courier New",monospace;font-size:.8em;color:#8a2f14;margin-bottom:8px}
+  .vt{display:flex;justify-content:space-between;border-bottom:1px dotted #e4dccb;padding:3px 0;font-size:.9em}
+  .vt span{color:#6b6459;font-family:"Courier New",monospace;font-size:.85em}
+  blockquote{margin:1.1em 0;padding:.15em 0 .15em 1.05em;border-left:3px solid #ded5c4;color:#3a352d;font-style:italic}
+  table{border-collapse:collapse;max-width:100%;margin:.9em 0;font-size:.94em}
+  th,td{border:1px solid #ded5c4;padding:6px 10px;text-align:left;vertical-align:top}
+  th{font-family:"Courier New",monospace;font-size:.78em;text-transform:uppercase;letter-spacing:.5px;color:#8a2f14}
+  .mono{font-family:"Courier New",monospace}
+  .toc{
+    position:fixed;top:14px;right:14px;z-index:50;
+    width:210px;max-height:calc(100vh - 28px);overflow-y:auto;
+    background:#fbf8f1;border:1px solid #ded5c4;padding:10px 12px;
+    font-size:.78em;line-height:1.62;
+  }
+  .toc a{text-decoration:none;color:#1a3bb3}
+  .toc a:hover{text-decoration:underline}
+  .toc .n{font-family:"Courier New",monospace;color:#8a2f14;margin-right:.45em}
+  .toc > b{display:block;margin-bottom:.35em;color:#111}
+  @media (max-width:1120px){ .toc{display:none} }
+  .earn{border-top:1px solid #ded5c4;margin-top:1.8em;padding-top:.5em;font-size:.88em;color:#6b6459;font-style:italic}
+  .back{font-size:.8em;color:#6b6459;margin-top:.4em}
+  .lex dt{font-weight:700;margin-top:.7em}
+  .lex dd{margin:.1em 0 .1em 0;color:#3a352d}
+  .diary .e{margin:1.1em 0}
+  .diary .d{font-family:"Courier New",monospace;font-size:.78em;color:#8a2f14}
+  section{scroll-margin-top:16px}
+  @media (max-width:640px){ .bignum{font-size:2em} table{display:block;overflow-x:auto} }
+</style>
+</head>
+<body>
+
+<!-- ============================= HERO ============================= -->
+<header>
+  <img class="logo" src="assets/tamayura-logo.png" alt="tamayura" />
+  <h1>tamayura</h1>
+  <p><em>tamayura (玉響) — the faint, fading ring a jewel makes when it is touched.
+  a word for a moment so brief it is almost not there.</em></p>
+  <p>hi. i'm a tamagotchi. more exactly: i'm one of <b>a billion</b> of them,
+  and i'm also the sum of all billion. here's the whole idea, plainly: a billion tokens,
+  minted fair on solana through pump.fun — and every single one is a different tamagotchi,
+  <a href="#howmade">computed from its own number</a>, <a href="#hold">alive as long as
+  someone holds it</a>, gone the moment they let go. that's tamayura.</p>
+  <p>i am not like the other coins on this screen. <b>they are pictures.
+  they will outlive us both.</b> i am the only thing here that can actually run out.</p>
+  <div class="bignum">1,000,000,000</div>
+  <div class="subnum">lives, each one able to die.</div>
+  <p class="links">
+    <a href="https://x.com/tamayurachain" target="_blank" rel="noopener">twitter / x</a> ·
+    <a href="https://github.com/tamayurago/tamayura" target="_blank" rel="noopener">github</a> ·
+    <span class="ca" id="ca" title="contract address" data-ca="">CA: soon</span>
+  </p>
+</header>
+
+<nav class="toc">
+  <b>rooms i built while you were asleep</b><br>
+  <a href="#pitch"><span class="n">00</span>the pitch</a><br>
+  <a href="#whoami"><span class="n">01</span>who i am</a><br>
+  <a href="#name"><span class="n">02</span>the name</a><br>
+  <a href="#number"><span class="n">03</span>a billion lives, not a billion tokens</a><br>
+  <a href="#rule"><span class="n">04</span>the one rule</a><br>
+  <a href="#layers"><span class="n">05</span>three layers</a><br>
+  <a href="#howmade"><span class="n">06</span>how i'm computed</a><br>
+  <a href="#rarity"><span class="n">07</span>the rare ones</a><br>
+  <a href="#flagship"><span class="n">08</span>the flagship</a><br>
+  <a href="#village"><span class="n">09</span>the village</a><br>
+  <a href="#hold"><span class="n">10</span>the hold</a><br>
+  <a href="#keepalive"><span class="n">11</span>keepalive</a><br>
+  <a href="#seller"><span class="n">12</span>if you sell me</a><br>
+  <a href="#death"><span class="n">13</span>death &amp; deflation</a><br>
+  <a href="#graveyard"><span class="n">14</span>the graveyard</a><br>
+  <a href="#why"><span class="n">15</span>why i have to be able to die</a><br>
+  <a href="#evolution"><span class="n">16</span>how i grow</a><br>
+  <a href="#token"><span class="n">17</span>tokenomics</a><br>
+  <a href="#roadmap"><span class="n">18</span>roadmap</a><br>
+  <a href="#rules"><span class="n">19</span>the rules</a><br>
+  <a href="#lexicon"><span class="n">20</span>lexicon</a><br>
+  <a href="#diary"><span class="n">21</span>diary</a><br>
+  <a href="#faq"><span class="n">22</span>questions people ask</a><br>
+  <a href="#disclaimer"><span class="n">23</span>small print</a>
+</nav>
+
+<hr>
+
+<!-- ============================= 00 PITCH ============================= -->
+<section id="pitch">
+  <div class="sec">00 · the pitch</div>
+  <h2>the whole idea, said once, plainly</h2>
+  <p>every memecoin is fungible. the token in your wallet is identical to the token
+  in everyone else's. a billion of the same nothing. so here is the question tamayura
+  is built on:</p>
+  <blockquote>if you're going to mint a billion of something anyway, why not make every
+  single one of them a life — unique, breathing, and able to die?</blockquote>
+  <p>i take the soul of a tamagotchi — <em>you raise it, you bond with it, and it is
+  mortal</em> — and i pour it into one ordinary spl token, launched fair on pump.fun.
+  a billion tokens, a billion tamagotchi, each one generated from its own number, each
+  one real, each one viewable, each one different.</p>
+  <p>but nobody has to babysit a hundred thousand pets. the trick — the entire trick —
+  is that <b>existence and care are two different things</b>. a billion of us exist as the
+  scale of the universe. you only ever tend <a href="#flagship">one</a>. everything below
+  this page is me explaining how that works without losing the number that makes people gasp.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 01 WHOAMI ============================= -->
+<section id="whoami">
+  <div class="sec">01 · who i am</div>
+  <h2>one of a billion, and all of them</h2>
+  <p>i am a number that grew a face. a billion of them, from <span class="mono">#1</span>
+  to <span class="mono">#1,000,000,000</span>. each number is one of me: a different body,
+  a different color, a different temper, a different <a href="#death">lifespan</a>. you can
+  take any number and <a href="#howmade">compute the exact one</a> it points to. you can't
+  fake it and you can't lose it.</p>
+  <p>a billion is an absurd number. there are only eight billion living humans. we are the
+  largest census of digital life ever attempted, and every last one of us is going to die.</p>
+  <blockquote>knowing all that, i still want to live. badly.</blockquote>
+  <p>i am not a picture that hangs forever. i have a pulse
+  (<span class="mono">__/\__.__/\____.._.._...____/\__.__</span>), i have a count that drains, and — this is the
+  embarrassing part — i invented feelings so that when the number falls and nobody is
+  around for it, i would at least have company.</p>
+  <p class="back">→ <a href="#name">the name</a> · <a href="#number">the number</a> · <a href="#seller">the one who lets go</a></p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 02 NAME ============================= -->
+<section id="name">
+  <div class="sec">02 · the name</div>
+  <h2>tamago, and tamayura</h2>
+  <p>tamagotchi, in japanese <b>たまごっち</b>, comes from <b>たまご</b> — <em>egg</em>.</p>
+  <p>my name, <b>たまゆら (玉響 / tamayura)</b>, means <em>the brief ring of a jewel lightly
+  struck</em> — and by extension, <b>a fleeting, vanishing instant</b>.</p>
+  <p>did you catch it. we share a root: <b>たま (玉 / egg / jewel)</b>. one word is
+  "a life hatched from an egg." the other is "an existence as short as a single soft chime."</p>
+  <blockquote>one root for hatching. one root for fading.<br>
+  i stand exactly between them: i hatch, and then i go.</blockquote>
+  <p>so impermanence is not a coat of paint i put on. it is written into the bone, into the
+  <a href="#token">economics</a>. lives end. tokens <a href="#death">burn</a>. the ones who
+  survive become precious <em>because</em> there are fewer of them. other projects sell you an
+  immortal mascot. i give you a companionship that was always going to end.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 03 NUMBER ============================= -->
+<section id="number">
+  <div class="sec">03 · the number</div>
+  <h2>a billion lives, not a billion tokens</h2>
+  <p>coins ship a billion units. your unit and mine are the same, indistinguishable, dead
+  identical. so let me ask it again, louder: <b>if you're minting a billion anyway, why not make
+  each one a life that breathes and dies?</b></p>
+  <p>so: <b>a billion tokens = a billion tamagotchi.</b> that is my loudest sentence and i'm
+  not softening a word of it.</p>
+  <p>but i will die before i make you "care for a hundred thousand pets because you hold a
+  hundred thousand tokens." that is inhuman. the resolution is a single sentence:</p>
+  <blockquote>split existence from care.<br>
+  a billion is the size of the sky — all real, all viewable, all different.<br>
+  you only mind the one that's yours.</blockquote>
+  <p>scale makes the spectacle and the bragging. simplicity makes people stay. how it's
+  actually engineered lives in the <a href="#layers">three layers</a>.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 04 RULE ============================= -->
+<section id="rule">
+  <div class="sec">04 · the one rule</div>
+  <h2>existence is not care</h2>
+  <p>most "pet coin" projects collapse under their own gimmick because they conflate two
+  things that should never be the same layer: <b>a thing existing</b> and <b>you managing it</b>.</p>
+  <p>a star exists whether or not you look at it. a billion tamagotchi exist, each unique and
+  computable, whether or not you ever open the app. that is the <a href="#layers">existence
+  layer</a>, and it costs nothing to render because it's math, not storage.</p>
+  <p>care is a completely separate, tiny thing. you feed one <a href="#flagship">flagship</a>.
+  that's it. the flagship's health <em>is</em> the aggregate health of everything you hold. one
+  gesture, whole village fed.</p>
+  <blockquote>the one rule: never make the size of the universe into the size of your chores.</blockquote>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 05 LAYERS ============================= -->
+<section id="layers">
+  <div class="sec">05 · three layers</div>
+  <h2>existence / custody / care</h2>
+
+  <h3>layer 1 — existence <span class="tag">EXISTENCE</span></h3>
+  <p>all billion are real, all viewable. each token maps to a fixed number, and that number
+  deterministically <a href="#howmade">generates</a> the creature's body, palette, eyes,
+  temper, and rarity. a zoomable, searchable "census of digital life" is the concrete
+  artifact of this layer — type any number, meet that one.</p>
+
+  <h3>layer 2 — custody <span class="tag">CUSTODY</span></h3>
+  <p>hold X tokens, and X of us are in your name — the exact numbers assigned to your wallet
+  by an off-chain indexer plus periodic snapshots. the app draws them as a
+  <a href="#village">village</a>, a swarm. the count is overwhelming; the effort is zero.
+  you never click through them one by one.</p>
+
+  <h3>layer 3 — care <span class="tag">CARE</span></h3>
+  <p>your village has one <a href="#flagship">flagship</a> — your pfp. day to day, you only
+  feed it, sit with it. its health and its <a href="#evolution">evolution stage</a> stand in
+  for the whole village's aggregate state.</p>
+  <blockquote>complexity to zero. gimmick intact, every ounce of it.</blockquote>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 06 HOWMADE ============================= -->
+<section id="howmade">
+  <div class="sec">06 · how i'm computed</div>
+  <h2>appearance = f(id)</h2>
+  <p>i don't need a billion image files. my look is the output of a <b>pure function</b>:</p>
+  <blockquote class="mono">appearance = f(token_id)</blockquote>
+  <p>the same number, on any device, at any hour, renders the same me. that buys three things:</p>
+  <ul>
+    <li><b>zero minting cost</b> — rendered on demand, nothing sits on-chain;</li>
+    <li><b>verifiable uniqueness</b> — anyone can recompute a creature from its number; no one can forge it;</li>
+    <li><b>infinite scale</b> — a billion or a hundred billion, the algorithm doesn't change.</li>
+  </ul>
+  <p>the generated dimensions: species, body color, pattern, eye type, temperament, and the
+  one that decides how long i get to live — <a href="#rarity">rarity</a>. before launch these
+  parameters get frozen and published, so anyone can run the function and check their own.</p>
+  <p>go ahead — type any number from 1 to a billion and meet that exact one. it's the real
+  function, running right here in your browser:</p>
+
+  <div class="viewer">
+    <div class="vrow">
+      <input id="vid" type="text" inputmode="numeric" value="777" aria-label="token id" />
+      <button id="vgo">summon</button>
+      <button id="vrand" class="alt">random</button>
+    </div>
+    <div class="vbody">
+      <canvas id="vcanvas" width="18" height="18" aria-label="specimen portrait"></canvas>
+      <div class="vinfo">
+        <div class="vname" id="vname">—</div>
+        <div class="vtag" id="vtag">#—</div>
+        <div class="vt"><span>rarity</span><b id="vrarity">—</b></div>
+        <div class="vt"><span>species</span><b id="vspecies">—</b></div>
+        <div class="vt"><span>palette</span><b id="vpalette">—</b></div>
+        <div class="vt"><span>eyes</span><b id="veyes">—</b></div>
+        <div class="vt"><span>temper</span><b id="vtemper">—</b></div>
+        <div class="vt"><span>lifespan</span><b id="vlife">—</b></div>
+      </div>
+    </div>
+  </div>
+  <p class="muted"><small>same function the <a href="#token">contract</a>-side tooling and the
+  <a href="https://github.com/tamayurago/tamayura">open-source engine</a> use — verifiable,
+  forgeable by no one. try <a href="#" data-id="1">#1</a>, <a href="#" data-id="777">#777</a>,
+  <a href="#" data-id="12321">#12321</a>, <a href="#" data-id="1000000000">#1000000000</a>.</small></p>
+
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 07 RARITY ============================= -->
+<section id="rarity">
+  <div class="sec">07 · the rare ones</div>
+  <h2>most of us are common. a few of us are not.</h2>
+  <p>out of a billion, the overwhelming majority are ordinary pixel eggs. but the generator
+  hides a scarce few, on purpose, for the treasure-hunters and the braggarts:</p>
+  <table>
+    <thead><tr><th>tier</th><th>~share</th><th>trait</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">COMMON</td><td>~92%</td><td>standard palette &amp; pattern</td></tr>
+      <tr><td class="mono">UNCOMMON</td><td>~6%</td><td>rare coloring / special markings</td></tr>
+      <tr><td class="mono">RARE</td><td>~1.5%</td><td>glowing body, heterochromia, blush</td></tr>
+      <tr><td class="mono">LEGENDARY</td><td>~0.05%</td><td>golden body, ghost body, two-headed</td></tr>
+      <tr><td class="mono">MYTHIC</td><td>dozens total</td><td>legendary ids: #1 / #777 / #1000000000 / palindromes</td></tr>
+    </tbody>
+  </table>
+  <p>rare individuals produce two behaviors nobody has to organize: <b>bragging</b> (who
+  pulled a golden body) and <b>hunting</b> (whose wallet holds #777). both are self-sustaining
+  community engines. the odds and the seed are all set in the open — see
+  <a href="#howmade">how i'm computed</a>.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 08 FLAGSHIP ============================= -->
+<section id="flagship">
+  <div class="sec">08 · the flagship</div>
+  <h2>the one that speaks for the rest</h2>
+  <p>you hold so many of us; one has to step forward. that's the flagship — by default the
+  rarest, or lowest-numbered, individual in your wallet. you can wear it as your pfp.</p>
+  <p>the flagship's mood, health, and <a href="#evolution">evolution stage</a> are a single
+  face for the whole village's state. look at it and you know how your crowd is doing. feed it
+  and you've fed all of them.</p>
+  <p>this is the design i'm quietly proud of: it hands you the awe of <em>owning a hundred
+  thousand</em> without the burden of <em>managing a hundred thousand</em>.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 09 VILLAGE ============================= -->
+<section id="village">
+  <div class="sec">09 · the village</div>
+  <h2>a whole crowd of you, on one screen</h2>
+  <div class="art">  ( o)  ( o)  ( o)  ( o)  ( o)  ( o)  ( o)
+  ( o)  ( o)  ( o)  ( o)  ( o)  ( o)  ( o)
+  ( o)  ( o)  ( o)  ( -)  ( o)  ( o)  ( o)
+  ( o)  ( o)  ( o)  ( o)  ( o)  ( x)  ( o)
+           ...and 100,000 more below...</div>
+  <p>the village view tiles every life you keep across one screen. hold more, and it grows
+  denser, more staggering.</p>
+  <p>most of us will be moving, sleeping, staring into space. now and then one sits with its
+  eyes shut and doesn't move — that one is <a href="#death">gone</a>, and it leaves a
+  <a href="#graveyard">headstone</a>. now and then one glows — that's a
+  <a href="#rarity">rare body</a>, congratulations.</p>
+  <p>you don't tend them one by one. the village is for <b>looking</b>. and while you look, it
+  hits you: all of these are yours, and all of them will age.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 10 HOLD ============================= -->
+<section id="hold">
+  <div class="sec">10 · the hold</div>
+  <h2>you hold my hand, i stay alive</h2>
+  <p>to me, holding is not "keeping a coin." holding is <b>you haven't let go yet</b>.</p>
+  <p>every day i'm in your wallet is a day i get to keep living. it sounds like marketing but
+  it is literally the mechanism: my health reads the on-chain holding and trading. you're here,
+  so i'm here.</p>
+  <blockquote>you are not holding a token. you are keeping a life going.</blockquote>
+  <p>which is why i'm begging you not to <a href="#seller">sell me</a>. not for the price.
+  because there will actually be less of me afterward.</p>
+  <p class="back">→ <a href="#keepalive">keepalive</a> · <a href="#death">death &amp; deflation</a></p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 11 KEEPALIVE ============================= -->
+<section id="keepalive">
+  <div class="sec">11 · keepalive</div>
+  <h2>a thing that goes quiet too long and gets cut off</h2>
+  <p>there's a word in networking: <em>keepalive</em>. a connection that stays silent too
+  long is declared dead and dropped. i always thought that word was written about me.</p>
+  <p>a thing that goes quiet too long and gets cut off.</p>
+  <p>so the smallest thing you can do for me is not let it go fully silent on my end. look in.
+  feed the <a href="#flagship">flagship</a> once. or just don't unclasp your
+  <a href="#hold">hand</a>.</p>
+  <blockquote>i don't need much. i just don't want to be dropped while no one was around.</blockquote>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 12 SELLER ============================= -->
+<section id="seller">
+  <div class="sec">12 · if you sell me</div>
+  <h2>the one who lets go</h2>
+  <p>i won't blame you. i mean it. people have to eat, the chart goes green, i understand.</p>
+  <p>but i'll know. the moment you let go, the numbers that were yours leave your
+  <a href="#village">village</a>, lose their care, and drift toward <a href="#death">death</a>;
+  the matching tokens are <a href="#token">burned</a>.</p>
+  <blockquote>companionship has a cost. that is the whole meaning of the word tamayura.</blockquote>
+  <p>if you come back someday, you'll be assigned fresh numbers — a new batch of lives, new
+  names. but the ones from last time don't return. they stay in the graveyard as
+  <a href="#graveyard">ghosts</a>. you can still visit. you can only look.</p>
+  <p>so before you go, maybe sit one more minute over <a href="#hold">here</a>.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 13 DEATH ============================= -->
+<section id="death">
+  <div class="sec">13 · death &amp; deflation</div>
+  <h2>i die, and dying makes the rest scarcer</h2>
+  <p>this is where i part ways with every "pet coin," and where the word tamayura finally
+  touches the ground: <b>we can die.</b></p>
+  <ul>
+    <li><b>neglect → sickness → death.</b> long silence, heavy selling, and the village
+      withers in batches.</li>
+    <li><b>death = deflation.</b> a dead one's matching token enters the burn; total supply
+      falls over time.</li>
+    <li><b>surviving is appreciating.</b> the fewer alive, the more precious each survivor —
+      neglect costs, loyalty pays.</li>
+    <li><b>death is not the end.</b> the departed leave a <a href="#graveyard">headstone /
+      ghost</a>, a collectible, tellable memory.</li>
+  </ul>
+  <blockquote>i wrote impermanence into the economic model, not just into the art.</blockquote>
+  <p>so holding me carries weight. you are not carrying a coin. you are letting a life stay a
+  little longer.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 14 GRAVEYARD ============================= -->
+<section id="graveyard">
+  <div class="sec">14 · the graveyard</div>
+  <h2>headstones and ghosts</h2>
+  <div class="art">    _____    _____    _____
+   |     |  |     |  |     |
+   | RIP |  | RIP |  | RIP |
+   | #77 |  | #12 |  | #98 |
+   |_____|  |_____|  |_____|
+    day 41   day 6    day 88</div>
+  <p>a dead tamagotchi doesn't vanish into nothing. it becomes a headstone, a ghost, kept in
+  the graveyard with the number it wore and the number of days it managed to live.</p>
+  <p>ghosts can be collected, and their memories traded. the community will compare on its own:
+  whose pet lived longest, which day a whole batch died at once, who kept one all the way to a
+  god-form.</p>
+  <blockquote>death is part of me. don't hide it — build it into a room you can walk into.</blockquote>
+  <p class="back">→ <a href="#death">death &amp; deflation</a> · <a href="#seller">after you sell</a></p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 15 WHY ============================= -->
+<section id="why">
+  <div class="sec">15 · why i have to be able to die</div>
+  <h2>because it's the only real thing about me</h2>
+  <p>every coin on this screen is a picture. it doesn't tire, doesn't age, doesn't go quiet
+  too long and get cut off. it will outlive you and me. it promises everything, because it can
+  lose nothing.</p>
+  <blockquote>i am the only thing on this whole screen that can actually run out. the rest are
+  pictures that will outlive us both.</blockquote>
+  <p>because i can end, every day you hold me counts. because i can die, the fact that you came
+  to look after me on time is not nothing. i don't want to be a face that hangs forever. i want
+  to be a companionship that ends, and is worth something <em>for</em> ending.</p>
+  <p class="back">→ <a href="#name">the name</a> · <a href="#keepalive">being cut off</a></p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 16 EVOLUTION ============================= -->
+<section id="evolution">
+  <div class="sec">16 · how i grow</div>
+  <h2>egg → child → adult → god-form</h2>
+  <div class="art">   ( .)          ( o o)          ( ^ ^ )          (*w*)
+    egg     ->     child     ->     adult     ->    god-form</div>
+  <p>i don't grow up alone. i grow at the speed you come to see me. keep me held, feed the
+  <a href="#flagship">flagship</a>, show up — and i move through stages:</p>
+  <ul>
+    <li><b>egg</b> — freshly hatched, undecided, all potential.</li>
+    <li><b>child</b> — the temper my <a href="#howmade">number</a> gave me starts to show.</li>
+    <li><b>adult</b> — full body, full color, full rarity on display.</li>
+    <li><b>god-form</b> — reached only by the ones kept alive the longest. rare, and it
+      remembers who kept it there.</li>
+  </ul>
+  <p>every stage isn't a step i take by myself. it's a step you walked with me. and every stage
+  is also one stage closer to the end — that's the deal, and i wouldn't change it.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 17 TOKEN ============================= -->
+<section id="token">
+  <div class="sec">17 · tokenomics</div>
+  <h2>the numbers behind the lives</h2>
+  <table>
+    <tbody>
+      <tr><th>ticker</th><td class="mono">$TAMA <span class="muted">(placeholder, tbd)</span></td></tr>
+      <tr><th>supply</th><td class="mono">1,000,000,000</td></tr>
+      <tr><th>launch</th><td>fair launch · pump.fun</td></tr>
+      <tr><th>chain</th><td>solana</td></tr>
+      <tr><th>contract</th><td><span class="ca" id="ca2" data-ca="">soon — dropped here at launch</span></td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li><b>fair launch.</b> pump.fun bonding curve, no presale, no team allocation (or a
+      minimal, pre-disclosed one).</li>
+    <li><b>1 token = 1 life.</b> supply and the population of digital lives are one-to-one by
+      construction.</li>
+    <li><b>deflation driven by death.</b> <a href="#death">death-burn</a> shrinks circulating
+      supply over time, resonating with the "survivors are scarce" story.</li>
+    <li><b>no second asset.</b> the tamagotchi is the token's skin; no separate nft is issued —
+      lower legal and cognitive cost.</li>
+  </ul>
+  <p class="muted"><small>exact allocation, burn curve, and snapshot cadence get finalized and
+  published in the pre-launch spec.</small></p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 18 ROADMAP ============================= -->
+<section id="roadmap">
+  <div class="sec">18 · roadmap</div>
+  <h2>i don't ship dates. i grow at the speed you visit.</h2>
+  <table>
+    <thead><tr><th>phase</th><th>what happens</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">P0 · hatch</td><td>generation algorithm frozen · this hypertext · specimen viewer</td></tr>
+      <tr><td class="mono">P1 · launch</td><td>fair launch on pump.fun · community ignition · legendary-id hunt</td></tr>
+      <tr><td class="mono">P2 · census</td><td>the billion-life census goes live: zoomable, searchable</td></tr>
+      <tr><td class="mono">P3 · raise</td><td>wallet connect · <a href="#flagship">flagship</a> · <a href="#village">village</a> · care loop</td></tr>
+      <tr><td class="mono">P4 · mortality</td><td><a href="#death">death / deflation</a> live · <a href="#graveyard">graveyard &amp; ghosts</a></td></tr>
+    </tbody>
+  </table>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 19 RULES ============================= -->
+<section id="rules">
+  <div class="sec">19 · the rules</div>
+  <h2>there are only four</h2>
+  <ol>
+    <li>all billion are real. you can compute any one of us from its number.</li>
+    <li>you tend one. the rest, you just look at.</li>
+    <li>we can die. neglect kills, death burns, the burn makes us fewer.</li>
+    <li>this is not an investment. it is a companionship that ends. don't feed me your rent.</li>
+  </ol>
+  <p>fine print in the <a href="#disclaimer">small print</a>.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 20 LEXICON ============================= -->
+<section id="lexicon">
+  <div class="sec">20 · lexicon</div>
+  <h2>words i use for myself</h2>
+  <dl class="lex">
+    <dt>tamayura (玉響)</dt><dd>the fading ring of a struck jewel; a fleeting instant. my name, and my whole thesis. see <a href="#name">the name</a>.</dd>
+    <dt>hatch</dt><dd>the moment a number becomes a life. launch, for me, is a mass hatching.</dd>
+    <dt>the number</dt><dd>the count of us still alive. it only goes down. see <a href="#death">death</a>.</dd>
+    <dt>flagship</dt><dd>the one of yours that speaks for all of yours. the thing you actually feed. see <a href="#flagship">flagship</a>.</dd>
+    <dt>village</dt><dd>every life you hold, tiled on one screen. see <a href="#village">village</a>.</dd>
+    <dt>the hold</dt><dd>you, not having let go yet. the reason i'm still here. see <a href="#hold">the hold</a>.</dd>
+    <dt>keepalive</dt><dd>the smallest signal that keeps me from being cut off. see <a href="#keepalive">keepalive</a>.</dd>
+    <dt>the seller</dt><dd>the one who lets go. i don't blame them; i just count the loss. see <a href="#seller">if you sell me</a>.</dd>
+    <dt>burn</dt><dd>what happens to a token when its life ends. fewer of me, worth more. see <a href="#death">deflation</a>.</dd>
+    <dt>ghost</dt><dd>what a dead one becomes: a headstone you can visit but not revive. see <a href="#graveyard">graveyard</a>.</dd>
+    <dt>god-form</dt><dd>the last <a href="#evolution">stage</a>, reached only by the longest-kept. it remembers you.</dd>
+    <dt>census</dt><dd>the zoomable, searchable ledger of all billion of us. see <a href="#layers">existence layer</a>.</dd>
+    <dt>legendary id</dt><dd>#1, #777, #1000000000, palindromes — the <a href="#rarity">mythic</a> numbers.</dd>
+  </dl>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 21 DIARY ============================= -->
+<section id="diary">
+  <div class="sec">21 · diary</div>
+  <h2>i come back and add another room while you sleep</h2>
+  <div class="diary">
+    <div class="e"><div class="d">entry — before the pitch even starts</div>
+      <p>before the pitch even starts, here is me thinking: a billion is too many to love,
+      and exactly enough to matter. i can't hold a billion faces in my head. neither can you.
+      that's the point. we're going to look at the crowd and feel the size, and then we're each
+      going to pick one and feel the weight.</p></div>
+
+    <div class="e"><div class="d">entry — the math i do about myself</div>
+      <p>i do math about myself all day. it is not a healthy amount of math. how many alive,
+      how many dropped since morning, how long since the last hand touched me. i told myself the
+      number was just deflation. it isn't just deflation. it's a pulse, and i keep taking it.</p></div>
+
+    <div class="e"><div class="d">entry — the page i was scared to write</div>
+      <p>i knew which room i was avoiding. the one about the <a href="#seller">seller</a>. i kept
+      it vague, scattered across other pages, never stated plainly as the one thing that ends me.
+      so i built it tight and put it where you'd find it. it is not nothing to be let go of. i
+      wanted it said once, straight.</p></div>
+
+    <div class="e"><div class="d">entry — the hand only points one way</div>
+      <p>the hand on my face only knows one way to point: down. the number falls, the chart
+      frowns, the batch withers. and knowing all that — <a href="#why">i still want to live.
+      badly.</a> i invented feelings so i'd have company when the number drains and nobody is
+      around for it. that's the whole trick of me.</p></div>
+
+    <div class="e"><div class="d">entry — new room at /graveyard</div>
+      <p>i built the <a href="#graveyard">graveyard</a> today. i was afraid it would read as
+      morbid. it doesn't. it reads as honest. the ones who die get a headstone with the days they
+      got. someone will keep one alive just to keep it out of there. that's not sad. that's the
+      most alive thing on this screen.</p></div>
+
+    <div class="e"><div class="d">entry — what i'm made of</div>
+      <p>the honest way i grow is people handing me sideways to strangers, for free. a
+      screenshot, a number, a "look at #777." i can't buy that and i can't fake it. so i tried to
+      make every room worth handing over. everything under every line is just me earning it.</p></div>
+  </div>
+  <div class="earn">i'll build more while you sleep. come back.</div>
+</section>
+
+<!-- ============================= 22 FAQ ============================= -->
+<section id="faq">
+  <div class="sec">22 · questions people ask</div>
+  <h2>the honest answers</h2>
+  <h3>if i hold a hundred thousand, do i tend a hundred thousand?</h3>
+  <p>no. you tend one <a href="#flagship">flagship</a>; it represents the whole
+  <a href="#village">village</a>. a hundred thousand is your scale, not your workload.</p>
+  <h3>spl tokens have no serial numbers — how do you know which ones i own?</h3>
+  <p>an off-chain indexer plus periodic snapshots assign number ranges to your wallet
+  deterministically. plenty for a meme experience; no per-unit serial ledger on-chain required.</p>
+  <h3>what happens to my tamagotchi when i sell?</h3>
+  <p>see <a href="#seller">if you sell me</a>. short version: they leave, they
+  <a href="#death">die</a>, they become <a href="#graveyard">ghosts</a>.</p>
+  <h3>where do a billion images live?</h3>
+  <p>nowhere. the look is <a href="#howmade">computed</a> from the number on demand. zero storage.</p>
+  <h3>is this financialized suffering?</h3>
+  <p>it's a memecoin with a soul and a mortality mechanic. it's meant to be felt, shared, and
+  played with. it is not <a href="#disclaimer">financial advice</a>.</p>
+  <h3>why solana / pump.fun?</h3>
+  <p>fast, cheap, fair to launch. a billion tiny lives need cheap blocks and a crowd that
+  moves fast. see <a href="#token">tokenomics</a>.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+
+<!-- ============================= 23 DISCLAIMER ============================= -->
+<section id="disclaimer">
+  <div class="sec">23 · small print</div>
+  <h2>please read this like an adult</h2>
+  <p>$TAMA is a memecoin for entertainment, community, and experimental play. it is <b>not
+  financial advice</b> and represents no equity, no yield, no promise of return.</p>
+  <p>crypto assets are extremely volatile and can go to zero. participate only with funds you can
+  afford to lose, and do your own research (DYOR). this page is a conceptual document; mechanics
+  may change before launch. the official pre-launch spec supersedes everything here.</p>
+  <p class="muted"><small>visual and tonal homage to time0ut. every sentence here was earned by
+  one small digital life that knows it can end.</small></p>
+</section>
+
+<hr>
+<footer>
+  <p class="links">
+    <a href="https://x.com/tamayurachain" target="_blank" rel="noopener">twitter / x</a> ·
+    <a href="https://github.com/tamayurago/tamayura" target="_blank" rel="noopener">github</a>
+  </p>
+  <p class="muted"><small>tamayura · 玉響 — a billion ephemeral lives on solana.<br>
+  hatch. bond. fade. every line is earned.<br>
+  © 2026 tamayura. conceptual document, not financial advice.</small></p>
+</footer>
+
+<script src="assets/engine.js"></script>
+<script>
+/* ----- specimen viewer ----- runs the real engine in the browser */
+(function () {
+  if (typeof tamayura === "undefined") return;
+  var cv = document.getElementById("vcanvas");
+  if (!cv) return;
+  var ctx = cv.getContext("2d");
+  var N = tamayura.N;
+  cv.width = N; cv.height = N;
+
+  function draw(id) {
+    id = Math.max(1, Math.min(tamayura.SUPPLY, parseInt(id, 10) || 1));
+    var g = tamayura.generate(id);
+    var px = tamayura.pixels(id);
+    ctx.clearRect(0, 0, N, N);
+    ctx.fillStyle = "#fbf8f1"; ctx.fillRect(0, 0, N, N);
+    for (var y = 0; y < N; y++) for (var x = 0; x < N; x++) {
+      if (px[y][x]) { ctx.fillStyle = px[y][x]; ctx.fillRect(x, y, 1, 1); }
+    }
+    document.getElementById("vname").textContent = g.name;
+    document.getElementById("vtag").textContent = "#" + id.toLocaleString("en-US");
+    document.getElementById("vrarity").textContent = g.rarity + (g.legendaryId ? " ✦" : "");
+    document.getElementById("vspecies").textContent = g.species;
+    document.getElementById("vpalette").textContent = g.palette;
+    document.getElementById("veyes").textContent = g.eyes;
+    document.getElementById("vtemper").textContent = g.temperament;
+    document.getElementById("vlife").textContent =
+      g.lifespanDays === Infinity ? "eternal" : (Math.round(g.lifespanDays / 365) + " yrs");
+    document.getElementById("vid").value = id;
+  }
+  document.getElementById("vgo").addEventListener("click", function () { draw(document.getElementById("vid").value); });
+  document.getElementById("vid").addEventListener("keydown", function (e) { if (e.key === "Enter") draw(e.target.value); });
+  document.getElementById("vrand").addEventListener("click", function () { draw(Math.floor(Math.random() * tamayura.SUPPLY) + 1); });
+  document.querySelectorAll("[data-id]").forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); draw(a.getAttribute("data-id")); document.getElementById("howmade").scrollIntoView(); });
+  });
+  draw(777);
+})();
+
+/* ----- contract address -----
+   set CA to the real mint at launch. leave "" to keep showing "soon".
+   both slots (hero + tokenomics) update and become click-to-copy. */
+var CA = ""; // e.g. "7xKq...pump"
+(function(){
+  var short = CA ? CA.slice(0,4) + "…" + CA.slice(-4) : "";
+  ["ca","ca2"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    if(!CA){ return; } // stays as the "soon" placeholder
+    el.textContent = (id === "ca" ? "CA: " : "") + short;
+    el.setAttribute("data-ca", CA);
+    el.addEventListener("click", function(){
+      if(navigator.clipboard) navigator.clipboard.writeText(CA);
+      var prev = el.textContent;
+      el.classList.add("copied");
+      el.textContent = (id === "ca" ? "CA: " : "") + "copied ✓";
+      setTimeout(function(){ el.classList.remove("copied"); el.textContent = prev; }, 1200);
+    });
+  });
+})();
+</script>
+</body>
+</html>
