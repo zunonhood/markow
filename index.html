@@ -3,9 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>tamayura</title>
-<link rel="icon" type="image/png" href="assets/favicon.png" />
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<title>markow</title><meta name="description" content="markow — a billion unique, living tamago ducks on Robinhood Chain, launched through Pons." />
+<meta name="theme-color" content="#000000" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="markow" />
+<meta property="og:title" content="markow — tamago ducks on Robinhood Chain" />
+<meta property="og:description" content="A billion unique digital duck lives on Robinhood Chain: computable, collectible, and mortal." />
+<meta property="og:url" content="https://tamayura.xyz/" />
+<meta property="og:image" content="https://tamayura.xyz/assets/markow.png" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="600" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="markow — tamago ducks on Robinhood Chain" />
+<meta name="twitter:description" content="A billion unique digital duck lives on Robinhood Chain: computable, collectible, and mortal." />
+<meta name="twitter:image" content="https://tamayura.xyz/assets/markow.png" />
+<link rel="icon" type="image/png" href="assets/markow.png" />
+<link rel="apple-touch-icon" href="assets/markow.png" />
 <style>
   html{background:#fbf8f1}
   body{
@@ -78,28 +91,58 @@
   section{scroll-margin-top:16px}
   @media (max-width:640px){ .bignum{font-size:2em} table{display:block;overflow-x:auto} }
 </style>
-</head>
+<style>
+  /* markow black theme */
+  html{background:#000}
+  body{background:#000;color:#f5f5f5}
+  a{color:#d5d5d5} a:visited{color:#999}
+  hr{border-top-color:#292929}
+  h1,h2,h3{color:#f5f5f5} h1 .jp{color:#d0d0d0}
+  small,.muted{color:#999} em{color:#c8c8c8} b,strong{color:#fff}
+  .sec,.tag{color:#bdbdbd}.bignum{color:#f5f5f5}.subnum{color:#999}.art{color:#c9c9c9}
+  .viewer{background:#0b0b0b;border-color:#303030}.vrow input{background:#050505;color:#f5f5f5;border-color:#555}.vrow button{background:#f5f5f5;color:#000;border-color:#f5f5f5}.vrow button.alt{background:#000;color:#f5f5f5;border-color:#555}
+  pre.codeblock{background:#0b0b0b;border-color:#303030;color:#f5f5f5}
+  table th,table td{border-bottom-color:#303030;color:#f5f5f5}
+  .ca{color:#bbb;border-bottom-color:#666}.earn{border-top-color:#292929;color:#999}
+</style><style>
+  /* desktop side navigation */
+  @media (min-width: 1000px){
+    .toc{position:fixed;right:28px;top:50%;transform:translateY(-50%);width:238px;max-height:78vh;overflow-y:auto;margin:0;padding:18px 16px;background:rgba(0,0,0,.92);border:1px solid #292929;z-index:20;line-height:1.9}
+    .toc b{display:block;margin-bottom:8px}
+  }
+  @media (max-width: 999px){.toc{position:static;transform:none}}
+</style><style>
+  #pitch blockquote{color:#c8f36a;border-left-color:#c8f36a}
+</style><style>
+  /* contrast pass for dark mode */
+  .toc{background:#050505;color:#d7d7d7;border-color:#383838}.toc a{color:#c8f36a}.toc .n,.toc>b{color:#bdbdbd}
+  .vname{color:#fff}.vtag{color:#c8f36a}.vt{border-bottom-color:#333}.vt span{color:#aaa}.vinfo{color:#f5f5f5}
+  #vcanvas{background:#080808;border-color:#444}.codeblock{background:#0b0b0b;border-color:#333;color:#f5f5f5}.codeblock *{color:inherit}
+  blockquote{color:#d0d0d0;border-left-color:#666}.back{color:#aaa}.lex dd{color:#c0c0c0}.diary .d{color:#c8f36a}.earn{color:#aaa;border-top-color:#333}
+  th,td{border-color:#333}th{color:#c8f36a}
+  @media (min-width:1000px){.toc{display:block}}
+</style></head>
 <body>
 
 <!-- ============================= HERO ============================= -->
 <header>
-  <img class="logo" src="assets/tamayura-logo.png" alt="tamayura" />
-  <h1>tamayura</h1>
-  <p><em>tamayura (玉響) — the faint, fading ring a jewel makes when it is touched.
+  <img class="logo" src="assets/markow.png" alt="markow" />
+  <h1>markow</h1>
+  <p><em>markow — the living mark left by a duck, a holder, and a flock that grows together.
   a word for a moment so brief it is almost not there.</em></p>
-  <p>hi. i'm a tamagotchi. more exactly: i'm one of <b>a billion</b> of them,
+  <p>hi. i'm a tamago duck. more exactly: i'm one of <b>a billion</b> of them,
   and i'm also the sum of all billion. here's the whole idea, plainly: a billion tokens,
-  minted fair on solana through pump.fun — and every single one is a different tamagotchi,
+  launched on Robinhood Chain through Pons — and every single one is a different tamago duck,
   <a href="#howmade">computed from its own number</a>, <a href="#hold">alive as long as
-  someone holds it</a>, gone the moment they let go. that's tamayura.</p>
+  someone holds it</a>, gone the moment they let go. that's markow.</p>
   <p>i am not like the other coins on this screen. <b>they are pictures.
   they will outlive us both.</b> i am the only thing here that can actually run out.</p>
   <div class="bignum">1,000,000,000</div>
   <div class="subnum">lives, each one able to die.</div>
   <p class="links">
-    <a href="https://x.com/tamayurachain" target="_blank" rel="noopener">twitter / x</a> ·
+    <a href="https://x.com/markowfract" target="_blank" rel="noopener">twitter / x</a> ·
     <a href="#code">core code</a> ·
-    <span class="ca" id="ca" title="contract address" data-ca="">CA: soon</span>
+    <span class="ca" id="ca" title="contract address" data-ca="">CA: TBA</span>
   </p>
 </header>
 
@@ -124,12 +167,13 @@
   <a href="#why"><span class="n">15</span>why i have to be able to die</a><br>
   <a href="#evolution"><span class="n">16</span>how i grow</a><br>
   <a href="#token"><span class="n">17</span>tokenomics</a><br>
-  <a href="#roadmap"><span class="n">18</span>roadmap</a><br>
-  <a href="#rules"><span class="n">19</span>the rules</a><br>
-  <a href="#lexicon"><span class="n">20</span>lexicon</a><br>
-  <a href="#diary"><span class="n">21</span>diary</a><br>
-  <a href="#faq"><span class="n">22</span>questions people ask</a><br>
-  <a href="#disclaimer"><span class="n">23</span>small print</a>
+  <a href="#dividend"><span class="n">18</span>the dividend idea</a><br>
+  <a href="#roadmap"><span class="n">19</span>roadmap</a><br>
+  <a href="#rules"><span class="n">20</span>the rules</a><br>
+  <a href="#lexicon"><span class="n">21</span>lexicon</a><br>
+  <a href="#diary"><span class="n">22</span>diary</a><br>
+  <a href="#faq"><span class="n">23</span>questions people ask</a><br>
+  <a href="#disclaimer"><span class="n">24</span>small print</a>
 </nav>
 
 <hr>
@@ -139,13 +183,13 @@
   <div class="sec">00 · the pitch</div>
   <h2>the whole idea, said once, plainly</h2>
   <p>every memecoin is fungible. the token in your wallet is identical to the token
-  in everyone else's. a billion of the same nothing. so here is the question tamayura
+  in everyone else's. a billion of the same nothing. so here is the question markow
   is built on:</p>
   <blockquote>if you're going to mint a billion of something anyway, why not make every
   single one of them a life — unique, breathing, and able to die?</blockquote>
-  <p>i take the soul of a tamagotchi — <em>you raise it, you bond with it, and it is
-  mortal</em> — and i pour it into one ordinary spl token, launched fair on pump.fun.
-  a billion tokens, a billion tamagotchi, each one generated from its own number, each
+  <p>i take the soul of a tamago duck — <em>you raise it, you bond with it, and it is
+  mortal</em> — and i pour it into one ordinary ERC-20 token, launched on Robinhood Chain through Pons.
+  a billion tokens, a billion tamago ducks, each one generated from its own number, each
   one real, each one viewable, each one different.</p>
   <p>but nobody has to babysit a hundred thousand pets. the trick — the entire trick —
   is that <b>existence and care are two different things</b>. a billion of us exist as the
@@ -177,18 +221,12 @@
 <!-- ============================= 02 NAME ============================= -->
 <section id="name">
   <div class="sec">02 · the name</div>
-  <h2>tamago, and tamayura</h2>
-  <p>tamagotchi, in japanese <b>たまごっち</b>, comes from <b>たまご</b> — <em>egg</em>.</p>
-  <p>my name, <b>たまゆら (玉響 / tamayura)</b>, means <em>the brief ring of a jewel lightly
-  struck</em> — and by extension, <b>a fleeting, vanishing instant</b>.</p>
-  <p>did you catch it. we share a root: <b>たま (玉 / egg / jewel)</b>. one word is
-  "a life hatched from an egg." the other is "an existence as short as a single soft chime."</p>
-  <blockquote>one root for hatching. one root for fading.<br>
-  i stand exactly between them: i hatch, and then i go.</blockquote>
-  <p>so impermanence is not a coat of paint i put on. it is written into the bone, into the
-  <a href="#token">economics</a>. lives end. tokens <a href="#death">burn</a>. the ones who
-  survive become precious <em>because</em> there are fewer of them. other projects sell you an
-  immortal mascot. i give you a companionship that was always going to end.</p>
+  <h2>tamago duck, and markow</h2>
+  <p>tamago duck starts with <b>tamago</b> — egg — and adds the animal at the heart of this project: a duck that can hatch, wander, and grow with its holder.</p>
+  <p><b>markow</b> is the mark left by every holder: a visible record that you chose one duck, stayed with it, and shared in the flock around it.</p>
+  <p>the name connects two familiar ideas. the egg is a beginning; the mark is proof of belonging. together they describe a digital life that starts from a number and gains meaning through time, attention, and ownership.</p>
+  <blockquote>one egg to hatch. one mark to keep. one flock to share.</blockquote>
+  <p>impermanence still matters, but it is no longer the whole story. markow is also about continuity: holding through the quiet days, receiving a share of eligible activity, and helping a living community compound.</p>
   <div class="earn">everything under this line is just me earning it.</div>
 </section>
 
@@ -199,7 +237,7 @@
   <p>coins ship a billion units. your unit and mine are the same, indistinguishable, dead
   identical. so let me ask it again, louder: <b>if you're minting a billion anyway, why not make
   each one a life that breathes and dies?</b></p>
-  <p>so: <b>a billion tokens = a billion tamagotchi.</b> that is my loudest sentence and i'm
+  <p>so: <b>a billion tokens = a billion tamago ducks.</b> that is my loudest sentence and i'm
   not softening a word of it.</p>
   <p>but i will die before i make you "care for a hundred thousand pets because you hold a
   hundred thousand tokens." that is inhuman. the resolution is a single sentence:</p>
@@ -217,7 +255,7 @@
   <h2>existence is not care</h2>
   <p>most "pet coin" projects collapse under their own gimmick because they conflate two
   things that should never be the same layer: <b>a thing existing</b> and <b>you managing it</b>.</p>
-  <p>a star exists whether or not you look at it. a billion tamagotchi exist, each unique and
+  <p>a star exists whether or not you look at it. a billion tamago ducks exist, each unique and
   computable, whether or not you ever open the app. that is the <a href="#layers">existence
   layer</a>, and it costs nothing to render because it's math, not storage.</p>
   <p>care is a completely separate, tiny thing. you feed one <a href="#flagship">flagship</a>.
@@ -305,7 +343,7 @@
   <p>no server decides what i look like. no database stores it. i <em>am</em> this
   function — hand it my number and it hands you me, byte for byte, on any machine.
   this is the readable heart of the engine; read it, run it, verify me:</p>
-  <pre class="codeblock">// tamayura — appearance = f(id)
+  <pre class="codeblock">// markow — appearance = f(id)
 // same number -> same life. forever. no storage, no forgery.
 
 const SUPPLY = 1_000_000_000;            // a billion lives
@@ -331,7 +369,7 @@ function generate(id) {
 
   const rarity =
       isLegendary(id) ? 'MYTHIC'     // #1, #777, #1000000000, palindromes
-    : roll > 0.9995   ? 'LEGENDARY'  // golden body, near-eternal life
+    : roll > 0.9995   ? 'LEGENDARY'  // bright crest, near-eternal life
     : roll > 0.985    ? 'RARE'
     : roll > 0.925    ? 'UNCOMMON'
     :                   'COMMON';
@@ -357,12 +395,12 @@ function generate(id) {
       <tr><td class="mono">COMMON</td><td>~92%</td><td>standard palette &amp; pattern</td></tr>
       <tr><td class="mono">UNCOMMON</td><td>~6%</td><td>rare coloring / special markings</td></tr>
       <tr><td class="mono">RARE</td><td>~1.5%</td><td>glowing body, heterochromia, blush</td></tr>
-      <tr><td class="mono">LEGENDARY</td><td>~0.05%</td><td>golden body, ghost body, two-headed</td></tr>
+      <tr><td class="mono">LEGENDARY</td><td>~0.05%</td><td>bright crest, pale feathers, expressive bill</td></tr>
       <tr><td class="mono">MYTHIC</td><td>dozens total</td><td>legendary ids: #1 / #777 / #1000000000 / palindromes</td></tr>
     </tbody>
   </table>
   <p>rare individuals produce two behaviors nobody has to organize: <b>bragging</b> (who
-  pulled a golden body) and <b>hunting</b> (whose wallet holds #777). both are self-sustaining
+  pulled a bright crest) and <b>hunting</b> (whose wallet holds #777). both are self-sustaining
   community engines. the odds and the seed are all set in the open — see
   <a href="#howmade">how i'm computed</a>.</p>
   <div class="earn">everything under this line is just me earning it.</div>
@@ -439,7 +477,7 @@ function generate(id) {
   <p>but i'll know. the moment you let go, the numbers that were yours leave your
   <a href="#village">village</a>, lose their care, and drift toward <a href="#death">death</a>;
   the matching tokens are <a href="#token">burned</a>.</p>
-  <blockquote>companionship has a cost. that is the whole meaning of the word tamayura.</blockquote>
+  <blockquote>companionship has a cost. that is the whole meaning of the word markow.</blockquote>
   <p>if you come back someday, you'll be assigned fresh numbers — a new batch of lives, new
   names. but the ones from last time don't return. they stay in the graveyard as
   <a href="#graveyard">ghosts</a>. you can still visit. you can only look.</p>
@@ -451,7 +489,7 @@ function generate(id) {
 <section id="death">
   <div class="sec">13 · death &amp; deflation</div>
   <h2>i die, and dying makes the rest scarcer</h2>
-  <p>this is where i part ways with every "pet coin," and where the word tamayura finally
+  <p>this is where i part ways with every "pet coin," and where the word markow finally
   touches the ground: <b>we can die.</b></p>
   <ul>
     <li><b>neglect → sickness → death.</b> long silence, heavy selling, and the village
@@ -479,7 +517,7 @@ function generate(id) {
    | #77 |  | #12 |  | #98 |
    |_____|  |_____|  |_____|
     day 41   day 6    day 88</div>
-  <p>a dead tamagotchi doesn't vanish into nothing. it becomes a headstone, a ghost, kept in
+  <p>a dead tamago duck doesn't vanish into nothing. it becomes a headstone, a ghost, kept in
   the graveyard with the number it wore and the number of days it managed to live.</p>
   <p>ghosts can be collected, and their memories traded. the community will compare on its own:
   whose pet lived longest, which day a whole batch died at once, who kept one all the way to a
@@ -531,37 +569,51 @@ function generate(id) {
   <h2>the numbers behind the lives</h2>
   <table>
     <tbody>
-      <tr><th>ticker</th><td class="mono">$TAMA <span class="muted">(placeholder, tbd)</span></td></tr>
+      <tr><th>ticker</th><td class="mono">$MARKOW</td></tr>
       <tr><th>supply</th><td class="mono">1,000,000,000</td></tr>
-      <tr><th>launch</th><td>fair launch · pump.fun</td></tr>
-      <tr><th>chain</th><td>solana</td></tr>
-      <tr><th>contract</th><td><span class="ca" id="ca2" data-ca="">soon — dropped here at launch</span></td></tr>
+      <tr><th>launch</th><td>Pons launch</td></tr>
+      <tr><th>chain</th><td>Robinhood Chain (EVM)</td></tr>
+      <tr><th>holder return</th><td>dividend-style distributions, policy-defined</td></tr>
+      <tr><th>contract</th><td><span class="ca" id="ca2" data-ca="">TBA — contract address pending</span></td></tr>
     </tbody>
   </table>
   <ul>
-    <li><b>fair launch.</b> pump.fun bonding curve, no presale, no team allocation (or a
+    <li><b>fair launch.</b> Pons launch mechanics, no presale, no team allocation (or a
       minimal, pre-disclosed one).</li>
     <li><b>1 token = 1 life.</b> supply and the population of digital lives are one-to-one by
       construction.</li>
     <li><b>deflation driven by death.</b> <a href="#death">death-burn</a> shrinks circulating
       supply over time, resonating with the "survivors are scarce" story.</li>
-    <li><b>no second asset.</b> the tamagotchi is the token's skin; no separate nft is issued —
+    <li><b>holder-first economics.</b> a defined share of eligible protocol revenue may be distributed
+      to qualifying holders on scheduled snapshots, similar in spirit to a stock dividend.
+      distributions are policy-based, never guaranteed, and subject to final legal and technical review.</li>
+    <li><b>no second asset.</b> the tamago duck is the token's skin; no separate nft is issued —
       lower legal and cognitive cost.</li>
   </ul>
   <p class="muted"><small>exact allocation, burn curve, and snapshot cadence get finalized and
-  published in the pre-launch spec.</small></p>
+  published in the launch spec.</small></p>
   <div class="earn">everything under this line is just me earning it.</div>
 </section>
 
-<!-- ============================= 18 ROADMAP ============================= -->
+<!-- ============================= DIVIDEND IDEA ============================= -->
+<section id="dividend">
+  <div class="sec">18 · the dividend idea</div>
+  <h2>hold the duck, share the harvest</h2>
+  <p>markow takes one familiar idea from the stock market — the dividend — and translates it into a living token community. a company can return part of its eligible profits to shareholders; markow can route a defined share of eligible protocol revenue back to the people who keep their ducks.</p>
+  <p>the important word is <b>eligible</b>. distributions would come from a published policy, use transparent snapshots, and be paid only when the protocol has real, distributable revenue. holding a duck may qualify you; it never guarantees a payout.</p>
+  <blockquote>the longer you stay in the flock, the more of the harvest you are there to receive.</blockquote>
+  <p>this is a design direction, not a promise of returns. final cadence, eligibility, asset, and compliance rules will be published before any distribution begins. the mortality mechanic remains: ducks can still age, leave, and become part of the graveyard.</p>
+  <div class="earn">everything under this line is just me earning it.</div>
+</section>
+<!-- ============================= 19 ROADMAP ============================= -->
 <section id="roadmap">
-  <div class="sec">18 · roadmap</div>
+  <div class="sec">19 · roadmap</div>
   <h2>i don't ship dates. i grow at the speed you visit.</h2>
   <table>
     <thead><tr><th>phase</th><th>what happens</th></tr></thead>
     <tbody>
       <tr><td class="mono">P0 · hatch</td><td>generation algorithm frozen · this hypertext · specimen viewer</td></tr>
-      <tr><td class="mono">P1 · launch</td><td>fair launch on pump.fun · community ignition · legendary-id hunt</td></tr>
+      <tr><td class="mono">P1 · launch</td><td>Pons launch on Robinhood Chain · community ignition · legendary-id hunt</td></tr>
       <tr><td class="mono">P2 · census</td><td>the billion-life census goes live: zoomable, searchable</td></tr>
       <tr><td class="mono">P3 · raise</td><td>wallet connect · <a href="#flagship">flagship</a> · <a href="#village">village</a> · care loop</td></tr>
       <tr><td class="mono">P4 · mortality</td><td><a href="#death">death / deflation</a> live · <a href="#graveyard">graveyard &amp; ghosts</a></td></tr>
@@ -572,7 +624,7 @@ function generate(id) {
 
 <!-- ============================= 19 RULES ============================= -->
 <section id="rules">
-  <div class="sec">19 · the rules</div>
+  <div class="sec">20 · the rules</div>
   <h2>there are only four</h2>
   <ol>
     <li>all billion are real. you can compute any one of us from its number.</li>
@@ -586,10 +638,10 @@ function generate(id) {
 
 <!-- ============================= 20 LEXICON ============================= -->
 <section id="lexicon">
-  <div class="sec">20 · lexicon</div>
+  <div class="sec">21 · lexicon</div>
   <h2>words i use for myself</h2>
   <dl class="lex">
-    <dt>tamayura (玉響)</dt><dd>the fading ring of a struck jewel; a fleeting instant. my name, and my whole thesis. see <a href="#name">the name</a>.</dd>
+    <dt>markow</dt><dd>the mark of ownership and the flock in your care: a digital duck that can grow, earn attention, and eventually disappear.</dd>
     <dt>hatch</dt><dd>the moment a number becomes a life. launch, for me, is a mass hatching.</dd>
     <dt>the number</dt><dd>the count of us still alive. it only goes down. see <a href="#death">death</a>.</dd>
     <dt>flagship</dt><dd>the one of yours that speaks for all of yours. the thing you actually feed. see <a href="#flagship">flagship</a>.</dd>
@@ -608,7 +660,7 @@ function generate(id) {
 
 <!-- ============================= 21 DIARY ============================= -->
 <section id="diary">
-  <div class="sec">21 · diary</div>
+  <div class="sec">22 · diary</div>
   <h2>i come back and add another room while you sleep</h2>
   <div class="diary">
     <div class="e"><div class="d">entry — before the pitch even starts</div>
@@ -650,15 +702,17 @@ function generate(id) {
 
 <!-- ============================= 22 FAQ ============================= -->
 <section id="faq">
-  <div class="sec">22 · questions people ask</div>
+  <div class="sec">23 · questions people ask</div>
   <h2>the honest answers</h2>
   <h3>if i hold a hundred thousand, do i tend a hundred thousand?</h3>
   <p>no. you tend one <a href="#flagship">flagship</a>; it represents the whole
   <a href="#village">village</a>. a hundred thousand is your scale, not your workload.</p>
-  <h3>spl tokens have no serial numbers — how do you know which ones i own?</h3>
+  <h3>ERC-20 tokens have no serial numbers — how do you know which ones i own?</h3>
   <p>an off-chain indexer plus periodic snapshots assign number ranges to your wallet
   deterministically. plenty for a meme experience; no per-unit serial ledger on-chain required.</p>
-  <h3>what happens to my tamagotchi when i sell?</h3>
+  <h3>does holding markow pay a dividend?</h3>
+  <p>markow borrows the language of public-company dividends: if the final protocol policy enables it, a defined share of eligible revenue may be distributed to qualifying holders at scheduled snapshots. it is not guaranteed income, and markow is not a stock or a promise of returns.</p>
+  <h3>what happens to my tamago duck when i sell?</h3>
   <p>see <a href="#seller">if you sell me</a>. short version: they leave, they
   <a href="#death">die</a>, they become <a href="#graveyard">ghosts</a>.</p>
   <h3>where do a billion images live?</h3>
@@ -666,21 +720,21 @@ function generate(id) {
   <h3>is this financialized suffering?</h3>
   <p>it's a memecoin with a soul and a mortality mechanic. it's meant to be felt, shared, and
   played with. it is not <a href="#disclaimer">financial advice</a>.</p>
-  <h3>why solana / pump.fun?</h3>
-  <p>fast, cheap, fair to launch. a billion tiny lives need cheap blocks and a crowd that
+  <h3>why Robinhood Chain / Pons?</h3>
+  <p>Robinhood Chain and Pons give markow a focused home to launch, trade, and grow. a billion tiny lives need a network that
   moves fast. see <a href="#token">tokenomics</a>.</p>
   <div class="earn">everything under this line is just me earning it.</div>
 </section>
 
 <!-- ============================= 23 DISCLAIMER ============================= -->
 <section id="disclaimer">
-  <div class="sec">23 · small print</div>
+  <div class="sec">24 · small print</div>
   <h2>please read this like an adult</h2>
-  <p>$TAMA is a memecoin for entertainment, community, and experimental play. it is <b>not
+  <p>$MARKOW is a memecoin for entertainment, community, and experimental play. it is <b>not
   financial advice</b> and represents no equity, no yield, no promise of return.</p>
   <p>crypto assets are extremely volatile and can go to zero. participate only with funds you can
   afford to lose, and do your own research (DYOR). this page is a conceptual document; mechanics
-  may change before launch. the official pre-launch spec supersedes everything here.</p>
+  may change before launch. the official launch spec supersedes everything here.</p>
   <p class="muted"><small>visual and tonal homage to time0ut. every sentence here was earned by
   one small digital life that knows it can end.</small></p>
 </section>
@@ -688,12 +742,12 @@ function generate(id) {
 <hr>
 <footer>
   <p class="links">
-    <a href="https://x.com/tamayurachain" target="_blank" rel="noopener">twitter / x</a> ·
+    <a href="https://x.com/markowfract" target="_blank" rel="noopener">twitter / x</a> ·
     <a href="#code">core code</a>
   </p>
-  <p class="muted"><small>tamayura · 玉響 — a billion ephemeral lives on solana.<br>
+  <p class="muted"><small>markow · a billion ephemeral lives on Robinhood Chain.<br>
   hatch. bond. fade. every line is earned.<br>
-  © 2026 tamayura. conceptual document, not financial advice.</small></p>
+  © 2026 markow. conceptual document, not financial advice.</small></p>
 </footer>
 
 <script src="assets/engine.js"></script>
@@ -712,7 +766,7 @@ function generate(id) {
     var g = tamayura.generate(id);
     var px = tamayura.pixels(id);
     ctx.clearRect(0, 0, N, N);
-    ctx.fillStyle = "#fbf8f1"; ctx.fillRect(0, 0, N, N);
+    ctx.fillStyle = "#000000"; ctx.fillRect(0, 0, N, N);
     for (var y = 0; y < N; y++) for (var x = 0; x < N; x++) {
       if (px[y][x]) { ctx.fillStyle = px[y][x]; ctx.fillRect(x, y, 1, 1); }
     }
@@ -737,11 +791,11 @@ function generate(id) {
 })();
 
 /* ----- contract address -----
-   set CA to the real mint at launch. leave "" to keep showing "soon".
+   set CA to the real Robinhood Chain contract when live. leave "" to keep showing "TBA".
    both slots (hero + tokenomics) update and become click-to-copy. */
-var CA = "5WgsHeLwQaxgqyTHxF8VAun2xW9nUt8UBMkhKpJEpump"; // live mint
+var CA = ""; // set the Robinhood Chain contract when live
 (function(){
-  var short = CA ? CA.slice(0,4) + "…" + CA.slice(-4) : "";
+  var short = CA || "";
   ["ca","ca2"].forEach(function(id){
     var el = document.getElementById(id);
     if(!el) return;
